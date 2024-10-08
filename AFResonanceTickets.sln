@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFResonanceTickets", "AFResonanceTickets\AFResonanceTickets.csproj", "{0857F57F-8CE0-45BC-8C70-86929B95C543}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Functions", "01. Functions", "{59040910-95A1-47A9-9218-D5E2D3AC0598}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0857F57F-8CE0-45BC-8C70-86929B95C543} = {59040910-95A1-47A9-9218-D5E2D3AC0598}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F61B18CC-5659-46A8-A134-C4040857363A}
+	EndGlobalSection
+EndGlobal
