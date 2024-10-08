@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=ticketdecimatiostorage;AccountKey=4m2u7yjjBg5roJZN1qmJvZQWb9cXIRN9C5dYSMqsvbBA0DVfBhFXpxev3cGFPTKXz4tpQF7tfN4W+ASt2htBug==;BlobEndpoint=https://ticketdecimatiostorage.blob.core.windows.net/;TableEndpoint=https://ticketdecimatiostorage.table.core.windows.net/;QueueEndpoint=https://ticketdecimatiostorage.queue.core.windows.net/;FileEndpoint=https://ticketdecimatiostorage.file.core.windows.net/",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  }
+
+}
