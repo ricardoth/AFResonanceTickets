@@ -3,9 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFResonanceTickets", "AFResonanceTickets\AFResonanceTickets.csproj", "{0857F57F-8CE0-45BC-8C70-86929B95C543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AFResonanceTickets", "AFResonanceTickets\AFResonanceTickets.csproj", "{0857F57F-8CE0-45BC-8C70-86929B95C543}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Functions", "01. Functions", "{59040910-95A1-47A9-9218-D5E2D3AC0598}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Application", "02. Application", "{D21CF7FA-DACA-4D91-BF54-77D0BA17BE0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Domain", "03. Domain", "{C8EFAC7A-A4F2-46E9-99B8-A6A133A7B316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Integrations", "04. Integrations", "{9D7710A4-FE1B-4E9A-919B-E591E1FD87C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFResonanceTickets.Application", "AFResonanceTickets.Application\AFResonanceTickets.Application.csproj", "{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFResonanceTickets.Domain", "AFResonanceTickets.Domain\AFResonanceTickets.Domain.csproj", "{6284BC33-16BF-4786-B33D-81F13E29E7C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFResonanceTickets.Integrations", "AFResonanceTickets.Integrations\AFResonanceTickets.Integrations.csproj", "{C6100A32-239E-4315-AE1A-2881A0E90222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +29,27 @@ Global
 		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0857F57F-8CE0-45BC-8C70-86929B95C543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6284BC33-16BF-4786-B33D-81F13E29E7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6284BC33-16BF-4786-B33D-81F13E29E7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6284BC33-16BF-4786-B33D-81F13E29E7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6284BC33-16BF-4786-B33D-81F13E29E7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6100A32-239E-4315-AE1A-2881A0E90222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6100A32-239E-4315-AE1A-2881A0E90222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6100A32-239E-4315-AE1A-2881A0E90222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6100A32-239E-4315-AE1A-2881A0E90222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0857F57F-8CE0-45BC-8C70-86929B95C543} = {59040910-95A1-47A9-9218-D5E2D3AC0598}
+		{22393E9A-0DED-4FE1-B66F-A9762E5DE3D4} = {D21CF7FA-DACA-4D91-BF54-77D0BA17BE0C}
+		{6284BC33-16BF-4786-B33D-81F13E29E7C5} = {C8EFAC7A-A4F2-46E9-99B8-A6A133A7B316}
+		{C6100A32-239E-4315-AE1A-2881A0E90222} = {9D7710A4-FE1B-4E9A-919B-E591E1FD87C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F61B18CC-5659-46A8-A134-C4040857363A}
