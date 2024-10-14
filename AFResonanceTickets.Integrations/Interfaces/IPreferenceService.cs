@@ -1,6 +1,4 @@
-﻿using AFResonanceTickets.Domain.Entities;
-
-namespace AFResonanceTickets.Integrations.Interfaces
+﻿namespace AFResonanceTickets.Integrations.Interfaces
 {
     public interface IPreferenceService
     {
