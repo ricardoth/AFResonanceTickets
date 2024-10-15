@@ -26,7 +26,7 @@ namespace AFResonanceTickets.Integrations.Services
         public async Task GenerateTickets(PreferenceTicket preferenceTicket)
         {
             try
-            {
+            { 
                 _telemetryClient.TrackTrace($"[INFO] Llamada a endpoint POST api/TicketQueue");
                 var request = await Url.AppendPathSegment("TicketQueue")
                     .AllowHttpStatus()
