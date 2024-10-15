@@ -1,5 +1,4 @@
 ﻿using AFResonanceTickets;
-using AFResonanceTickets.Configuration;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(Program))]
@@ -10,11 +9,16 @@ namespace AFResonanceTickets
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            //IConfiguration configuration = builder.Services.BuildServiceProvider().GetRequiredService<IConfiguration>();
-            var configuration = builder.GetContext().Configuration;
+            IConfiguration configuration = builder.Services.BuildServiceProvider().GetRequiredService<IConfiguration>();
             builder.Services.AddMediatR(typeof(Program).Assembly);
+            DecimatioSettings decimatioSettings = configuration.GetSection(DecimatioSettings.SettingsName).Get<DecimatioSettings>();
+            builder.Services.AddSingleton(decimatioSettings);
 
-            builder.Services.AddDependencyInjectorConfiguration(configuration);
+            #region Mediator
+            builder.Services.AddScoped<IRequestHandler<PreferenceCommandQuery, bool>, PreferenceCommandHandler>();
+            #endregion
+
+            builder.Services.AddScoped<IPreferenceService, PreferenceService>();
         }
     }
 }
