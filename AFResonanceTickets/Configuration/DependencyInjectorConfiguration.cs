@@ -1,12 +1,4 @@
-﻿using AFResonanceTickets.Application.Commands.Preferences;
-using AFResonanceTickets.Domain.ValueObjects;
-using AFResonanceTickets.Integrations.Interfaces;
-using AFResonanceTickets.Integrations.Services;
-using MediatR;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace AFResonanceTickets.Configuration
+﻿namespace AFResonanceTickets.Configuration
 {
     public static class DependencyInjectorConfiguration
     {
@@ -16,10 +8,10 @@ namespace AFResonanceTickets.Configuration
             service.AddSingleton(decimatioSettings);
 
             #region Mediator
-            service.AddTransient<IRequestHandler<PreferenceCommandQuery, bool>, PreferenceCommandHandler>();
+            service.AddScoped<IRequestHandler<PreferenceCommandQuery, bool>, PreferenceCommandHandler>();
             #endregion
 
-            service.AddTransient<IPreferenceService, PreferenceService>();
+            service.AddScoped<IPreferenceService, PreferenceService>();
         }
     }
 }

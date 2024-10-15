@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace AFResonanceTickets.Application.Commands.Preferences
+﻿namespace AFResonanceTickets.Application.Commands.Preferences
 {
     public class PreferenceCommandQuery : IRequest<bool>
     {

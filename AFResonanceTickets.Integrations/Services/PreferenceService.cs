@@ -1,12 +1,16 @@
-﻿namespace AFResonanceTickets.Integrations.Services
+﻿using Microsoft.ApplicationInsights;
+
+namespace AFResonanceTickets.Integrations.Services
 {
     public sealed class PreferenceService : IPreferenceService
     {
         private DecimatioSettings _config { get; }
+        private readonly TelemetryClient _telemetryClient;
 
-        public PreferenceService(DecimatioSettings config)
+        public PreferenceService(DecimatioSettings config, TelemetryClient telemetryClient)
         {
             _config = config;        
+            _telemetryClient = telemetryClient;
         }
 
         private IFlurlRequest Url
@@ -23,20 +27,22 @@
         {
             try
             {
-                var request = await Url.AppendPathSegment("ticketQueue")
+                _telemetryClient.TrackTrace($"[INFO] Llamada a endpoint POST api/TicketQueue");
+                var request = await Url.AppendPathSegment("TicketQueue")
                     .AllowHttpStatus()
                     .PostJsonAsync(preferenceTicket);
 
-                if (request.StatusCode != 200)
+                if (request.StatusCode != 200) 
                     throw new Exception("No se pudo generar los tickets");
 
                 var response = await request.GetStringAsync();
-                //Registrar respuesta en insight
+                _telemetryClient.TrackTrace($"[INFO] Llamada a endpoint POST api/TicketQueue - Exitoso");
             }
             catch (FlurlHttpException ex)
             {
                 var error = await ex.GetResponseStringAsync();
-                throw new Exception($"Error al invocar el servicio de Generar Tickets: {error}");
+                _telemetryClient.TrackTrace($"[ERROR] No se pudo conectar al servicio POST api/TicketQueue: {error}");
+                throw new Exception($"[ERROR] No se pudo conectar al servicio POST api/TicketQueue: {error}");
             }
         }
     }

@@ -1,0 +1,10 @@
+﻿global using AFResonanceTickets.Application.Commands.Preferences;
+global using AFResonanceTickets.Domain.ValueObjects;
+global using AFResonanceTickets.Integrations.Interfaces;
+global using AFResonanceTickets.Integrations.Services;
+global using MediatR;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Azure.WebJobs;
+global using Microsoft.Extensions.Logging;
+global using System.Threading.Tasks;
