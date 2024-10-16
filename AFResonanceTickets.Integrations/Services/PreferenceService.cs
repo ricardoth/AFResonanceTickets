@@ -1,4 +1,5 @@
 ﻿using Microsoft.ApplicationInsights;
+using Newtonsoft.Json.Linq;
 
 namespace AFResonanceTickets.Integrations.Services
 {
@@ -26,13 +27,16 @@ namespace AFResonanceTickets.Integrations.Services
         public async Task GenerateTickets(PreferenceTicket preferenceTicket)
         {
             try
-            { 
-                _telemetryClient.TrackTrace($"[INFO] Llamada a endpoint POST api/TicketQueue");
-                var request = await Url.AppendPathSegment("TicketQueue")
+            {
+                _telemetryClient.TrackTrace($"[INFO] Llamada a endpoint POST api/Ticket/TicketQueue");
+                var json = JObject.Parse(preferenceTicket.PreferenceCode);
+                var preferenceId = json["preferenceID"]?.ToString();
+                preferenceTicket.PreferenceCode = preferenceId;
+                var request = await Url.AppendPathSegments("Ticket", "TicketQueue")
                     .AllowHttpStatus()
                     .PostJsonAsync(preferenceTicket);
 
-                if (request.StatusCode != 200) 
+                if (!request.ResponseMessage.IsSuccessStatusCode)
                     throw new Exception("No se pudo generar los tickets");
 
                 var response = await request.GetStringAsync();
@@ -40,9 +44,13 @@ namespace AFResonanceTickets.Integrations.Services
             }
             catch (FlurlHttpException ex)
             {
-                var error = await ex.GetResponseStringAsync();
-                _telemetryClient.TrackTrace($"[ERROR] No se pudo conectar al servicio POST api/TicketQueue: {error}");
-                throw new Exception($"[ERROR] No se pudo conectar al servicio POST api/TicketQueue: {error}");
+                _telemetryClient.TrackTrace($"[ERROR] No se pudo conectar al servicio POST api/TicketQueue: {ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _telemetryClient.TrackTrace($"[ERROR] Error inesperado: {ex.Message}");
+                throw;
             }
         }
     }
