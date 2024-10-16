@@ -1,5 +1,6 @@
 ﻿using AFResonanceTickets;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using System;
 
 [assembly: FunctionsStartup(typeof(Program))]
 
@@ -12,6 +13,10 @@ namespace AFResonanceTickets
             IConfiguration configuration = builder.Services.BuildServiceProvider().GetRequiredService<IConfiguration>();
             builder.Services.AddMediatR(typeof(Program).Assembly);
             DecimatioSettings decimatioSettings = configuration.GetSection(DecimatioSettings.SettingsName).Get<DecimatioSettings>();
+            if (decimatioSettings == null)
+            {
+                throw new Exception("DecimatioSettings no se ha configurado correctamente.");
+            }
             builder.Services.AddSingleton(decimatioSettings);
 
             #region Mediator
