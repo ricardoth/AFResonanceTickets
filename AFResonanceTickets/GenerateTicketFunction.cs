@@ -16,7 +16,6 @@ namespace AFResonanceTickets
         [FunctionName("GenerateTicketFunction")]
         public async Task Run([QueueTrigger("resonance-ticket-queue", Connection = "AzureWebJobsStorage")]string myQueueItem, ILogger log)
         {
-            //Mensaje Prueba {"preferenceID":"437710298-506b68c4-90c3-4de6-9b65-2019fb76fb01"}
             _telemetryClient.TrackTrace($"[INFO] Mensaje recibido desde Azure Queue resonance-ticket-queue {myQueueItem}");
             try
             {
